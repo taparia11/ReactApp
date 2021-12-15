@@ -9,7 +9,10 @@ function App() {
   return (
     <>
       <Navbar title="TextFormator" />
-      <Textform/>
+      <div className="container my-4">
+
+      <Textform heading="Enter Text Below"/>
+      </div>
     </>
   );
 }
