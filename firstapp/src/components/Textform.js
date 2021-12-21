@@ -33,17 +33,17 @@ export default function Textform(props) {
     const[text,setText] = useState("Enter Your Text Here");
     return (
         <>
-            <div className='container'>
+            <div className='container' style={{color: props.mode==='light'?'black':'white'}}>
                 <div className="mb-3">
                     <label htmlFor="mybox" className="form-label"><h1>{props.heading}</h1></label>
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="mybox" rows="4"></textarea>
+                    <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey' , color: props.mode==='light'?'black':'white'}} id="mybox" rows="4"></textarea>
                 </div>
                 <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
                 <button className="btn btn-primary mx-2 my-3" onClick={handleLoClick}>Convert to lowerCase</button>
                 <button className="btn btn-primary mx-2 my-3" onClick={handleCopy}>Copy Text</button>
                 <button className="btn btn-primary mx-2 my-3" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
             </div>
-            <div className="container my-4">
+            <div className="container my-4" style={{color: props.mode==='light'?'black':'white'}}>
                 <h1>Your text summary</h1>
                 <p>{text.length - text.split(" ").length +1} characters and {text.split(" ").length} words</p>
             <h1>Preview</h1>
