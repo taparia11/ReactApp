@@ -38,7 +38,7 @@ export default function Textform(props) {
     }
     
 
-    const[text,setText] = useState("Enter Your Text Here");
+    const[text,setText] = useState("");
     return (
         <>
             <div className='container' style={{color: props.mode==='light'?'black':'white'}}>
@@ -46,10 +46,10 @@ export default function Textform(props) {
                     <label htmlFor="mybox" className="form-label"><h1>{props.heading}</h1></label>
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey' , color: props.mode==='light'?'black':'white'}} id="mybox" rows="4"></textarea>
                 </div>
-                <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className="btn btn-primary mx-2 my-3" onClick={handleLoClick}>Convert to lowerCase</button>
-                <button className="btn btn-primary mx-2 my-3" onClick={handleCopy}>Copy Text</button>
-                <button className="btn btn-primary mx-2 my-3" onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleUpClick}>Convert to UpperCase</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleLoClick}>Convert to lowerCase</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleCopy}>Copy Text</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
                 <button className="btn btn-danger mx-2 my-3" onClick={handleClear}>Clear</button>
             </div>
             <div className="container my-4" style={{color: props.mode==='light'?'black':'white'}}>
