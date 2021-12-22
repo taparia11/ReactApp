@@ -8,7 +8,6 @@ import Alert from './components/Alert';
 import { 
   BrowserRouter as Router,
   Route,
-  Link,
   Routes 
   } from 'react-router-dom'
 
@@ -49,6 +48,9 @@ function App() {
       showAlert('Light Mode has been Enabled', 'success');
     }
   }
+
+
+
   return (
     <>
     <Router>
@@ -56,7 +58,7 @@ function App() {
       <Alert alert={alert}/>
       <div className="container my-4">
       <Routes>
-        <Route path='/About' element={<About/>}/>
+        <Route exact path='/About' element={<About/>}/>
         <Route path='/' element={<Textform showAlert={showAlert} heading="Enter Text Below" mode ={mode}/>}/>
       </Routes>
       </div>
