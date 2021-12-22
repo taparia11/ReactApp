@@ -46,15 +46,15 @@ export default function Textform(props) {
                     <label htmlFor="mybox" className="form-label"><h1>{props.heading}</h1></label>
                     <textarea className="form-control" value={text} onChange={handleOnChange} style={{backgroundColor: props.mode==='light'?'white':'grey' , color: props.mode==='light'?'black':'white'}} id="mybox" rows="4"></textarea>
                 </div>
-                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleUpClick}>Convert to UpperCase</button>
-                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleLoClick}>Convert to lowerCase</button>
-                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleCopy}>Copy Text</button>
-                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
-                <button className="btn btn-danger mx-2 my-3" onClick={handleClear}>Clear</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2 my-1`} onClick={handleUpClick}>Convert to UpperCase</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2 my-1`} onClick={handleLoClick}>Convert to lowerCase</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2 my-1`} onClick={handleCopy}>Copy Text</button>
+                <button className={`btn btn-${props.mode==='dark'?'success':'primary'} mx-2 my-1`} onClick={handleExtraSpaces}>Remove Extra Spaces</button>
+                <button className="btn btn-danger mx-2 my-1" onClick={handleClear}>Clear</button>
             </div>
             <div className="container my-4" style={{color: props.mode==='light'?'black':'white'}}>
                 <h1>Your text summary</h1>
-                <p>{text.length - text.split(" ").length +1} characters and {text.split(" ").length} words</p>
+                <p>{text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
             <h1>Preview</h1>
             <p>{text.length>0?text:"Nothing to preview!"}</p>
             </div>
