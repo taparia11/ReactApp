@@ -1,14 +1,17 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+import NavBar from './components/NavBar';
+import News from './components/News';
+
 import './App.css';
 
-import React, { Component } from 'react'
 
 export default class App extends Component {
-  a = 'nikhil';
+
   render() {
     return (
       <div>
-        This is NIkhil taparia
+        <NavBar/>
+        <News/>
       </div>
     )
   }
