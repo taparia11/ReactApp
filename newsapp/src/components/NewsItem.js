@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 // import Button from '@mui/material/Button';
 
-export default class NewsItem extends Component {
+ const NewsItem = (props) => {
 
    
 
-    render() {
-        let {title, description, imageUrl, newsUrl, author, date, source} = this.props;
+   
+        let {title, description, imageUrl, newsUrl, author, date, source} = props;
         return (
             <div className='my-3'>
                 <div className="card" style={{width: "18rem"}}>
@@ -23,5 +23,7 @@ export default class NewsItem extends Component {
                 </div>
             </div>
         )
-    }
+    
 }
+
+export default NewsItem
