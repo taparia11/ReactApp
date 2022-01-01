@@ -31,7 +31,8 @@ constructor(props){
 
 async updateNews(){
     this.props.setProgress(0);
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+    const url = `https://gnews.io/api/v4/search?q=${this.props.category}&token=${this.props.apiKey}&lang=hi`;
+    // const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     this.props.setProgress(20);
     this.setState({loading:true});
     this.props.setProgress(40);
@@ -45,7 +46,9 @@ async updateNews(){
 
 fetchMoreData = async () => {
     this.setState({page: this.state.page + 1})
-    const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+
+    const url = `https://gnews.io/api/v4/search?q=${this.props.category}&token=${this.props.apiKey}&lang=hi`;
+    // const url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${this.props.apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
     //  this.setState({loading:true});
      let data = await fetch(url);
      let parsedData = await data.json()
@@ -110,7 +113,7 @@ render() {
                     <div className="row">
                         {this.state.articles.map((element) => {
                             return <div className="col-md-4" key={element.url}>
-                                <NewsItem title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 80) : ""} imageUrl={element.urlToImage}
+                                <NewsItem title={element.title ? element.title.slice(0, 40) : ""} description={element.description ? element.description.slice(0, 80) : ""} imageUrl={element.image}
                                     newsUrl={element.url} author={element.author ? element.author : element.source.name} date={element.publishedAt.slice(0, 10)} source={element.source.name}
                                 />
                             </div>
