@@ -13,8 +13,8 @@ export default function News (props) {
     const [page, setPage] = useState(1)
     const [totalResults, setTotalResults] = useState(0)
     // document.title = `${props.titleChange} - Khebar Aapki`;
-
-const updateNews = async ()=>{
+    
+    const updateNews = async ()=>{
     props.setProgress(0);
     // const url = `https://gnews.io/api/v4/search?q=${props.category}&token=${props.apiKey}&lang=hi`;
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
@@ -32,26 +32,27 @@ const updateNews = async ()=>{
 }
 
 const fetchMoreData = async () => {
-    setPage(page+1)
-
+    
     // const url = `https://gnews.io/api/v4/search?q=${props.category}&token=${props.apiKey}&lang=hi`;
-    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page}&pageSize=${props.pageSize}`;
+    const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
+    setPage(page+1)
     //  this.setState({loading:true});
-     let data = await fetch(url);
-     let parsedData = await data.json()
-     setArticles(articles.concat(parsedData.articles))
-     setTotalResults(parsedData.totalResults)
-     
-  };
+    let data = await fetch(url);
+    let parsedData = await data.json()
+    setArticles(articles.concat(parsedData.articles))
+    setTotalResults(parsedData.totalResults)
+    
+};
 
-  useEffect(() => {
-      updateNews();
-     
-  }, [])
+useEffect(() => {
+    document.title = `${props.titleChange} - Khebar Aapki`;
+    updateNews();
+    //eslint-disable-next-line
+}, [])
 
 
 // const handleNextClick = async ()=>{
-            // if(!(this.state.page + 1 > Math.ceil(this.state.totalResults/props.pageSize))){
+    // if(!(this.state.page + 1 > Math.ceil(this.state.totalResults/props.pageSize))){
             //         let url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=7fad0c0d80714e99b458b2c602716dbb&page=${this.state.page + 1}&pageSize=${props.pageSize}`;
             //         this.setState({loading:true});
             //         let data = await fetch(url);
@@ -85,7 +86,7 @@ const fetchMoreData = async () => {
 
     return (
         <div className='container my-3'>
-            <h2><center>Khebar Aapki - Top {props.titleChange==='Top Headlines'?"":props.titleChange} Headlines</center></h2>
+            <h2 style={{marginTop: '70px'}}><center>Khebar Aapki - Top {props.titleChange==='Top Headlines'?"":props.titleChange} Headlines</center></h2>
             {loading && <Spinner/>}
             <InfiniteScroll
                 dataLength={articles.length}
