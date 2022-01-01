@@ -10,7 +10,8 @@ import './App.css';
 
 export default class App extends Component {
    pageSize = 15;
-   apiKey = process.env.REACT_APP_NEWS_API
+  //  apiKey = process.env.REACT_APP_NEWS_API
+   apiKey = "f97bdaf5b38c1143dbd503873ece9987"
 
    state = {
      progress:0
@@ -32,6 +33,7 @@ export default class App extends Component {
       />
         <Routes>
         <Route exact path='/' element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='General' pageSize={this.pageSize} country="in" category="general" titleChange="Top Headlines"/>}/>
+        <Route exact path='/election' element={<News setProgress={this.setProgress} apiKey={this.apiKey} key="election" pageSize={this.pageSize} country="in" category="election" titleChange="Election"/>}/>
         <Route exact path='/business' element={<News setProgress={this.setProgress} apiKey={this.apiKey} key="business" pageSize={this.pageSize} country="in" category="business" titleChange="Business"/>}/>
         <Route exact path='/entertainment' element={<News setProgress={this.setProgress} apiKey={this.apiKey} key="entertainment" pageSize={this.pageSize} country="in" category="entertainment" titleChange="Entertainment"/>}/>
         <Route exact path='/health' element={<News setProgress={this.setProgress} apiKey={this.apiKey} key='health' pageSize={this.pageSize} country="in" category="health" titleChange="Health"/>}/>
