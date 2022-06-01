@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function NavBar () {
         return (
+          // Bootstrap based NavBar
             <div>
                 <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div className="container-fluid">
