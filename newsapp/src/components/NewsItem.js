@@ -5,7 +5,7 @@ import React from 'react'
 
    
 
-   
+        // geting these data from props
         let {title, description, imageUrl, newsUrl, author, date, source} = props;
         return (
             <div className='my-3'>
