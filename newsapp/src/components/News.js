@@ -32,7 +32,7 @@ export default function News (props) {
 }
 
 const fetchMoreData = async () => {
-    
+    // fatching data from api and refrenceing it using page number
     // const url = `https://gnews.io/api/v4/search?q=${props.category}&token=${props.apiKey}&lang=hi`;
     const url = `https://newsapi.org/v2/top-headlines?country=${props.country}&category=${props.category}&apiKey=${props.apiKey}&page=${page+1}&pageSize=${props.pageSize}`;
     setPage(page+1)
